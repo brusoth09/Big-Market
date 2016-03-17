@@ -20,11 +20,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
      **/
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder){
-
+        //configure spring security
     }
 
     @Override
     protected void configure(HttpSecurity httpSecurity){
-
+        //configure spring security
     }
 }

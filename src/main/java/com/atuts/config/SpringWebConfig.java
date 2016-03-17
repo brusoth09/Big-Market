@@ -106,8 +106,6 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
     @Autowired
     @Bean(name = "transactionManager")
     public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
-
-        return transactionManager;
+        return new HibernateTransactionManager(sessionFactory);
     }
 }

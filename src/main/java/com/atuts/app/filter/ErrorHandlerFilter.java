@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ErrorHandlerFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        //initialize the handler
     }
 
     @Override
@@ -25,6 +25,6 @@ public class ErrorHandlerFilter implements Filter {
 
     @Override
     public void destroy() {
-
+        //destroy the handler
     }
 }
