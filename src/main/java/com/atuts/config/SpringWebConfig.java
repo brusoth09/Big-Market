@@ -24,7 +24,7 @@ import org.springframework.web.servlet.view.JstlView;
 import javax.sql.DataSource;
 
 /**
- * class to configure application and beans.
+ * class to configure application and beans. replace spring beans xml configurations file.
  *
  * @author burusothman a
  * @version 0.1
