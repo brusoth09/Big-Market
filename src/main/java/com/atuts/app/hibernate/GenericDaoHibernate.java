@@ -4,18 +4,19 @@ import com.atuts.app.dao.GenericDao;
 import com.atuts.app.dao.SearchException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
-import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.*;
 
 /**
- * Created by BurusothmanA on 3/16/2016 7:47 PM.
+ * Generic class for handle hibernate generic methods.
+ *
+ * @param <T>
+ * @param <PK>
  */
 public class GenericDaoHibernate<T, PK extends Serializable> implements GenericDao<T, PK> {
 

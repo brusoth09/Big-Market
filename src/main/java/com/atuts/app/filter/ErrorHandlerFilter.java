@@ -4,7 +4,8 @@ import javax.servlet.*;
 import java.io.IOException;
 
 /**
- * Created by BurusothmanA on 3/15/2016 1:11 PM.
+ * Class to handle Errors.
+ *
  */
 public class ErrorHandlerFilter implements Filter {
     @Override

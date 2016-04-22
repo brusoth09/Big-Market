@@ -23,11 +23,15 @@ import org.springframework.web.servlet.view.JstlView;
 
 import javax.sql.DataSource;
 
-
 /**
- * Created by BurusothmanA on 3/10/2016 6:19 PM.
+ * class to configure application and beans.
+ *
+ * @author burusothman a
+ * @version 0.1
+ * @Configuration annotation let spring knows this class contains bean definitions.
+ * @EnableWebMvc annotation is same as <mvc:annotation-driven/>
+ * @ComponentScan annotation is same as <context:component-scan base-package="com.atutus.app"/>
  */
-
 @EnableWebMvc
 @Configuration
 @PropertySource("classpath:database/database.properties")
@@ -43,18 +47,34 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
     @Value("${jdbc.password}")
     private String password;
 
-
+    /**
+     * Method used to define our static resources like assets, css, images and java script files.
+     *
+     * @param registry optimized registry for serving static resources.
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 
     }
 
+    /**
+     * Method to register view controllers.
+     *
+     * @param registry stores registrations of view controllers.
+     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("redirect:/index.jsp");
     }
 
+    /**
+     * Bean for internal view resolver. Internal view Resolver is used to find internal resource view
+     * like jsp and html using predefined URL patterns. Additionally it allows to add some predefined
+     * prefix and suffix to view name and generate final view page URL.
+     *
+     * @return internal view resolver.
+     */
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
@@ -65,6 +85,11 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
         return internalResourceViewResolver;
     }
 
+    /**
+     * Bean class for Message Source.
+     *
+     * @return message source object
+     */
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
@@ -72,6 +97,11 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
+    /**
+     * Bean class for FlyWay database migration library.
+     *
+     * @return flyway object
+     */
     @Bean(initMethod = "migrate")
     public Flyway getFlyway() {
         Flyway flyway = new Flyway();
@@ -82,18 +112,34 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
         return flyway;
     }
 
-    @Bean(name = "datSource")
+    /**
+     * Bean class for data source object which is used to conect the database.
+     *
+     * @return data source
+     */
+    @Bean(name = "dataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(url, username, password);
         dataSource.setDriverClassName(driverClassName);
         return dataSource;
     }
 
+    /**
+     * Bean class for property sources place holder.
+     *
+     * @return PropertySourcesPlaceholderConfigurer
+     */
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
+    /**
+     * Method to get hibernate session factory
+     *
+     * @param dataSource data source bean
+     * @return session factory
+     */
     @Autowired
     @Bean(name = "sessionFactory")
     public SessionFactory getSessionFactory(DataSource dataSource) {
@@ -103,6 +149,12 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
         return sessionBuilder.buildSessionFactory();
     }
 
+    /**
+     * Method to get hibernate transaction manager
+     *
+     * @param sessionFactory session factory
+     * @return transaction manager
+     */
     @Autowired
     @Bean(name = "transactionManager")
     public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {

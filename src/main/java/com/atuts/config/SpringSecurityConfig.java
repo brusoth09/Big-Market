@@ -8,7 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * Created by BurusothmanA on 3/15/2016 11:41 AM.
+ * Class to provide spring security configurations.
+ *
  */
 @Configuration
 @EnableWebSecurity
@@ -17,12 +18,18 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      *  store and manage user credentials.
      *  to configure roles use authorities() or roles() method.
+     *
      **/
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder){
         //configure spring security
     }
 
+    /**
+     * method to configure spring security.
+     *
+     * @param httpSecurity
+     */
     @Override
     protected void configure(HttpSecurity httpSecurity){
         //configure spring security

@@ -1,8 +1,8 @@
 package com.atuts.app.dao;
 
 /**
+ * User defined exception class to handle search exceptions.
  *
- * @author jgarcia
  */
 public class SearchException extends RuntimeException {
 
