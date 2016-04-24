@@ -55,7 +55,9 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-
+        registry.addResourceHandler("/bootstrap/**").addResourceLocations("/bootstrap/");
+        registry.addResourceHandler("/dist/**").addResourceLocations("/dist/");
+        registry.addResourceHandler("/plugins/**").addResourceLocations("/plugins/");
     }
 
     /**
@@ -79,7 +81,7 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
         internalResourceViewResolver.setViewClass(JstlView.class);
-        internalResourceViewResolver.setPrefix("/WEB-INF/views/jsp/");
+        internalResourceViewResolver.setPrefix("/WEB-INF/views/");
         internalResourceViewResolver.setSuffix(".jsp");
 
         return internalResourceViewResolver;

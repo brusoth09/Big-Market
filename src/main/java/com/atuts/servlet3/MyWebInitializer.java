@@ -1,6 +1,7 @@
 package com.atuts.servlet3;
 
 import com.atuts.app.filter.ErrorHandlerFilter;
+import com.atuts.app.filter.MySiteMeshFilter;
 import com.atuts.config.SpringSecurityConfig;
 import com.atuts.config.SpringWebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -8,7 +9,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.Filter;
 
 /**
- * Created by BurusothmanA on 3/10/2016 6:43 PM.
+ * Class that replaces the web.xml configuration in earlier versions.
+ *
  */
 public class MyWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
@@ -28,6 +30,6 @@ public class MyWebInitializer extends AbstractAnnotationConfigDispatcherServletI
 
     @Override
     protected Filter[] getServletFilters() {
-        return new Filter[]{new ErrorHandlerFilter()};
+        return new Filter[]{new ErrorHandlerFilter(), new MySiteMeshFilter()};
     }
 }
