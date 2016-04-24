@@ -9,13 +9,16 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.Filter;
 
 /**
- * Class that replaces the web.xml configuration in earlier versions.
+ * Class that replaces the web.xml configuration in earlier versions. Interface to be implemented in
+ * Servlet 3.0+ environments in order to configure the ServletContext programmatically -- as opposed
+ * to (or possibly in conjunction with) the traditional web.xml-based approach.
  *
+ * will be detected automatically by SpringServletContainerInitializer.
  */
 public class MyWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{ SpringWebConfig.class, SpringSecurityConfig.class};
+        return new Class[]{SpringWebConfig.class, SpringSecurityConfig.class};
     }
 
     @Override
