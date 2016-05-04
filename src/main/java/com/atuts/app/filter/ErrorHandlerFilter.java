@@ -19,7 +19,7 @@ public class ErrorHandlerFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (Exception ex) {
             servletRequest.setAttribute("errorMessage", ex);
-            servletRequest.getRequestDispatcher("/WEB-INF/views/jsp/error.jsp")
+            servletRequest.getRequestDispatcher("500.jsp")
                     .forward(servletRequest, servletResponse);
         }
     }

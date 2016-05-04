@@ -1,3 +1,4 @@
+<%@include file="common/taglibs.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -24,7 +25,7 @@
             </div>
             </br>
             </br>
-            <h2 class="headline text-orange"> 403</h2>
+            <h2 class="headline text-orange">403</h2>
 
             <div class="error-content">
                 <h3><i class="fa fa-warning text-orange"></i> Not authorized!!</h3>

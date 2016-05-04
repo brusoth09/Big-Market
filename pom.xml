@@ -163,7 +163,7 @@
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <webApp>
-                        <contextPath>/spring-boilerplate</contextPath>
+                        <contextPath>/big-market</contextPath>
                     </webApp>
                 </configuration>
             </plugin>
