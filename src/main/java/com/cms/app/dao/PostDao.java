@@ -29,7 +29,7 @@ public class PostDao {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
 //        session.createQuery("from blog_posts");
-        
+
         tx.commit();
         session.close();
         return post;
