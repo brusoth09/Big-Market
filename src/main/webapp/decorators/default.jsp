@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
-    <link rel="stylesheet" href="dist/css/big-market/big-market.css">
+    <link rel="stylesheet" href="dist/css/simplecms/simplecms.css">
+    <link rel="stylesheet" href="dist/css/simplecms/simpleSideBar.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,7 +30,9 @@
     <script src="plugins/iCheck/icheck.min.js"></script>
     <sitemesh:write property='head'/>
 </head>
-<body<sitemesh:write property="body.id" writeEntireProperty="true"/><sitemesh:write property="body.class" writeEntireProperty="true"/>>
+<body <sitemesh:write property="body.id" writeEntireProperty="true"/>
+<sitemesh:write property="body.class" writeEntireProperty="true"/>
+
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="row">
         <sitemesh:write property='body'/>

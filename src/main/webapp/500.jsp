@@ -22,7 +22,7 @@
 
         <div class="error-page">
             <div class="login-logo">
-                <a href="../../index2.html"><b>Big</b>Market</a>
+                <a href="../../index2.html"><b>Simple</b>CMS</a>
             </div>
             </br>
             </br>

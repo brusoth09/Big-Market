@@ -1,4 +1,4 @@
-package com.atuts.config;
+package com.cms.config;
 
 import org.flywaydb.core.Flyway;
 import org.hibernate.SessionFactory;
@@ -35,7 +35,7 @@ import javax.sql.DataSource;
 @EnableWebMvc
 @Configuration
 @PropertySource("classpath:database/database.properties")
-@ComponentScan({"com.atuts.app"})
+@ComponentScan({"com.cms.app"})
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
     @Value("${jdbc.driverClassName}")
@@ -146,8 +146,8 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
     @Bean(name = "sessionFactory")
     public SessionFactory getSessionFactory(DataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-        sessionBuilder.scanPackages("com.atuts.app.model");
-        sessionBuilder.setProperty("hibernate.show_sql", "true");
+        sessionBuilder.scanPackages("com.cms.app.model");
+        sessionBuilder.setProperty("hibernate.show_sql", "false");
         return sessionBuilder.buildSessionFactory();
     }
 

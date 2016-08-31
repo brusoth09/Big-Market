@@ -1,4 +1,4 @@
-package com.atuts.app.dao;
+package com.cms.app.dao;
 
 import java.io.Serializable;
 import java.util.List;

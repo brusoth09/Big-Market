@@ -1,4 +1,4 @@
-package com.atuts.servlet3;
+package com.cms.servlet3;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

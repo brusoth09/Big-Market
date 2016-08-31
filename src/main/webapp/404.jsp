@@ -21,7 +21,7 @@
         <section class="content">
             <div class="error-page">
                 <div class="login-logo">
-                    <a href="../../index2.html"><b>Big</b>Market</a>
+                    <a href="../../index2.html"><b>Simple</b>CMs</a>
                 </div>
                 </br>
                 </br>

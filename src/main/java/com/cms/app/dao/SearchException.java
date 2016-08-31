@@ -1,4 +1,4 @@
-package com.atuts.app.dao;
+package com.cms.app.dao;
 
 /**
  * User defined exception class to handle search exceptions.

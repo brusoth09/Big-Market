@@ -1,9 +1,9 @@
-package com.atuts.servlet3;
+package com.cms.servlet3;
 
-import com.atuts.app.filter.ErrorHandlerFilter;
-import com.atuts.app.filter.MySiteMeshFilter;
-import com.atuts.config.SpringSecurityConfig;
-import com.atuts.config.SpringWebConfig;
+import com.cms.app.filter.ErrorHandlerFilter;
+import com.cms.app.filter.MySiteMeshFilter;
+import com.cms.config.SpringSecurityConfig;
+import com.cms.config.SpringWebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;

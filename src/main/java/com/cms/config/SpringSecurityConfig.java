@@ -1,4 +1,4 @@
-package com.atuts.config;
+package com.cms.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -42,7 +42,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         //configure spring security
-        httpSecurity.authorizeRequests().antMatchers("/home").access("hasRole('ROLE_USER')")
+        httpSecurity.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/home").access("hasRole('ROLE_USER')")
+                .antMatchers("/home").access("hasRole('ROLE_ADMIN')")
         .and()
             .formLogin().loginPage("/login")
             .defaultSuccessUrl("/home")
@@ -50,7 +52,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
             .usernameParameter("username").passwordParameter("password")
             .and().csrf()
         .and()
-            .logout().logoutSuccessUrl("/login?logout");
+            .logout().logoutSuccessUrl("/login?logout").and()
+            .exceptionHandling().accessDeniedPage("/403.jsp");
+
+        httpSecurity.csrf().disable();
     }
 
 }
