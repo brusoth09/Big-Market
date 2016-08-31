@@ -7,6 +7,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by burusothman on 8/31/16.
  */
@@ -32,6 +34,6 @@ public class PostDao {
 
         tx.commit();
         session.close();
-        return post;
+        return null;
     }
 }

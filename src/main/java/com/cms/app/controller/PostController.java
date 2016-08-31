@@ -73,19 +73,19 @@ public class PostController {
     @RequestMapping(value = "/getAll", method = RequestMethod.POST)
     @ResponseBody
     public String getAll(Model model,HttpServletRequest request, HttpServletResponse responce){
-//        if(!StringUtils.isEmpty(SecurityContextHolder.getContext().getAuthentication().getPrincipal())){
-          List<Post> posts = PostService.getByUser("brusoth");
-//        }
-          model.addAttribute("posts", posts);
+////        if(!StringUtils.isEmpty(SecurityContextHolder.getContext().getAuthentication().getPrincipal())){
+//          List<Post> posts = PostService.getByUser("brusoth");
+////        }
+//          model.addAttribute("posts", posts);
           return "postview";
 
     }
 
     @RequestMapping(value = "/getAllPost", method = RequestMethod.POST)
     @ResponseBody
-    public String getAll(Model model,HttpServletRequest request, HttpServletResponse responce){
-        List<Post> posts = PostService.getAll();
-        model.addAttribute("posts", posts);
+    public String getAllPosts(Model model,HttpServletRequest request, HttpServletResponse responce){
+//        List<Post> posts = PostService.getAll();
+//        model.addAttribute("posts", posts);
         return "postview";
 
     }

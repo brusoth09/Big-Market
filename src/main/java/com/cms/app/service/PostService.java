@@ -5,6 +5,8 @@ import com.cms.app.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by burusothman on 8/31/16.
  */
@@ -17,8 +19,8 @@ public class PostService {
         postDao.saveOrUpdate(post);
     }
 
-    public void getAll() {
-        postDao.
+    public List<Post> getAll() {
+        return null;
     }
 
 }
