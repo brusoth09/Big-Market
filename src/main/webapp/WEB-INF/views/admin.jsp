@@ -71,12 +71,12 @@
                             </td>
                             <td><c:choose>
                                     <c:when test="${user.enabled}">
-                                        <button class="btn btn-info"
-                                                onclick="">Suspend</button>
+                                        <button name="suspend" value="${user.username}" class="btn btn-info"
+                                                onclick="location.href='${pageContext.request.contextPath}/user/suspend?suspend=${user.username}'">Suspend</button>
                                     </c:when>
                                     <c:otherwise>
-                                        <button class="btn btn-info"
-                                                onclick="">Enable</button>
+                                        <button  name="suspend" value="${user.username}" class="btn btn-info"
+                                                onclick="location.href='${pageContext.request.contextPath}/user/suspend?suspend=${user.username}'">Enable</button>
                                     </c:otherwise>
                                 </c:choose>
                             </td>

@@ -2,6 +2,7 @@ package com.cms.app.dao;
 
 import com.cms.app.model.Role;
 import com.cms.app.model.User;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -48,5 +49,14 @@ public class UserDao {
         tx.commit();
         session.close();
         return role;
+    }
+
+    public void updateUserEnabled(User user) {
+        Session session = this.sessionFactory.openSession();
+        Query query = session.createQuery("update User set enabled = :enabled" +
+                " where username = :username");
+        query.setParameter("enabled", user.isEnabled());
+        query.setParameter("username", user.getUsername());
+        int result = query.executeUpdate();
     }
 }

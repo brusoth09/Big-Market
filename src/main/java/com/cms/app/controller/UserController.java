@@ -57,4 +57,14 @@ public class UserController {
         return "redirect:/admin";
     }
 
+    @RequestMapping(value = "/user/suspend", method = RequestMethod.GET)
+    public String updateUserEnabled(@ModelAttribute("userForm") User user, @RequestParam(value = "suspend") String suspend,
+                             BindingResult result, Model model, final RedirectAttributes redirectAttributes){
+
+        user.setUsername(suspend);
+        logger.debug("saveOrUpdateUser() : {}", user);
+        userService.updateUserEnabled(user);
+        return "redirect:/admin";
+    }
+
 }

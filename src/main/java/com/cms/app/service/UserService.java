@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -29,6 +30,18 @@ public class UserService {
     }
     public List<User> getAllUsers() {
         List<User> list = userDao.list();
+        String current_username = SecurityContextHolder.getContext().getAuthentication().getName();
+        for (Iterator<User> iter = list.listIterator(); iter.hasNext(); ) {
+            String a = iter.next().getUsername();
+            if (a.equalsIgnoreCase(current_username)) {
+                iter.remove();
+            }
+        }
         return list;
+    }
+
+    public void updateUserEnabled(User user) {
+        user.setEnabled(!user.isEnabled());
+        userDao.updateUserEnabled(user);
     }
 }
